@@ -1,0 +1,207 @@
+*,*::before,*::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --teal:        #3a9a96;
+    --teal-dark:   #2a7a76;
+    --teal-light:  #5bbdb9;
+    --teal-soft:   #e6f7f7;
+    --white:       #ffffff;
+    --text-dark:   #1a2e2e;
+    --text-muted:  #6b9e9c;
+    --card-grad-start: #3a9a96;
+    --card-grad-end:   #1a5c5a;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f0fafa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+}
+
+/* ── Top dots ── */
+.dots {
+    display: flex;
+    gap: 6px;
+    align-self: flex-start;
+    margin-left: 8px;
+    margin-bottom: 24px;
+}
+.dots span {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--teal-light);
+    opacity: 0.5;
+}
+.dots span:first-child { opacity: 1; }
+
+/* ── Header ── */
+.header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+.header .subtitle {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-dark);
+    letter-spacing: 0.3px;
+    margin-bottom: 4px;
+}
+.header .brand {
+    font-size: 42px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.1;
+}
+
+/* ── Card ── */
+.card {
+    width: 100%;
+    max-width: 380px;
+    background: linear-gradient(160deg, var(--card-grad-start), var(--card-grad-end));
+    border-radius: 32px;
+    padding: 36px 28px 40px;
+    box-shadow: 0 20px 60px rgba(58, 154, 150, 0.35);
+}
+
+/* ── Logo icon ── */
+.logo-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 28px;
+}
+.logo-icon {
+    width: 72px; height: 72px;
+    background: #f0fafa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo-icon svg {
+    width: 44px; height: 44px;
+    fill: white;
+}
+
+/* ── Fields ── */
+.field {
+    margin-bottom: 16px;
+}
+.field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 6px;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+.field input {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-dark);
+    background: var(--white);
+    transition: box-shadow 0.2s;
+}
+.field input::placeholder { color: #aac8c7; }
+.field input:focus {
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.4);
+}
+
+/* ── Divider ── */
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 22px 0;
+}
+.divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.25);
+}
+.divider span {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    font-weight: 400;
+}
+
+/* ── Buttons ── */
+.btn-signUp {
+    width: 100%;
+    padding: 14px;
+    border-radius: 50px;
+    border: 2px solid rgba(255,255,255,0.8);
+    background: transparent;
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: background 0.2s, color 0.2s;
+    margin-top: 8px;
+}
+.btn-signUp:hover {
+    background: var(--white);
+    color: var(--teal-dark);
+}
+
+.btn-google {
+    width: 100%;
+    padding: 13px;
+    border-radius: 50px;
+    border: none;
+    background: var(--white);
+    color: var(--text-dark);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: box-shadow 0.2s;
+}
+.btn-google:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+.btn-google svg {
+    width: 18px; height: 18px;
+    flex-shrink: 0;
+}
+
+/* ── Sign up link ── */
+.signup-link {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+}
+.signup-link a {
+    color: var(--white);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+    padding-bottom: 1px;
+}
+.signup-link a:hover { border-color: white; }
