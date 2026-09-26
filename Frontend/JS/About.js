@@ -1,133 +1,14 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // Get elements
-    const profileBtn = document.getElementById("profile-next-btn");
-    const nameInput = document.getElementById("profile-name");
-    const diabetesCards = document.querySelectorAll(".diabetes-card");
-    const diabetesTypeInput = document.getElementById("profile-diabetes-type");
-    const otherContainer = document.getElementById("other-diabetes-container");
-    const otherSelect = document.getElementById("profile-other-diabetes");
-    const otherSpecify = document.getElementById("profile-other-specify");
-    
-    fetch("https://Dia_user.firebaseio.com/userProfiles.json", {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ 
-            ip: "user's IP address" 
-        })
-    })
-    .then(res => res.json())
-    .then(data => console.log(data))
-    .catch(err => console.error(err));
-
-    let selectedType = "";
-
-    // ===== Diabetes card selection =====
-    diabetesCards.forEach(card => {
-        card.addEventListener("click", () => {
-            // Remove selected class from all cards
-            diabetesCards.forEach(c => c.classList.remove("selected"));
-            
-            // Add selected class to clicked card
-            card.classList.add("selected");
-
-            // Get the diabetes type
-            selectedType = card.dataset.type;
-            diabetesTypeInput.value = selectedType;
-
-            // Show/hide other container
-            if (selectedType === "other") {
-                otherContainer.style.display = "block";
-                otherSelect.value = "";
-                otherSpecify.style.display = "none";
-                otherSpecify.value = "";
-            } else {
-                otherContainer.style.display = "none";
-                otherSelect.value = "";
-                otherSpecify.style.display = "none";
-                otherSpecify.value = "";
-            }
-        });
-    });
-
-    // ===== Other select change =====
-    otherSelect.addEventListener("change", () => {
-        if (otherSelect.value === "other-specify") {
-            otherSpecify.style.display = "block";
-            otherSpecify.focus();
-        } else {
-            otherSpecify.style.display = "none";
-            otherSpecify.value = "";
-        }
-    });
-
-    // ===== Complete profile =====
-    profileBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-
-        const name = nameInput.value.trim();
-        
-
-        // Validate name
-        if (name === "") {
-            alert("Please enter your full name.");
-            nameInput.focus();
-            return;
-        }
-
-        // Validate diabetes type
-        if (selectedType === "") {
-            alert("Please select your diabetes type.");
-            return;
-        }
-
-        // Get diabetes display name
-        let diabetesDisplay = "";
-
-        if (selectedType === "other") {
-            if (otherSelect.value === "") {
-                alert("Please select or specify your diabetes type.");
-                otherSelect.focus();
-                return;
-            }
-
-            if (otherSelect.value === "other-specify") {
-                if (otherSpecify.value.trim() === "") {
-                    alert("Please specify your diabetes type.");
-                    otherSpecify.focus();
-                    return;
-                }
-                diabetesDisplay = otherSpecify.value.trim();
-            } else {
-                diabetesDisplay = otherSelect.options[otherSelect.selectedIndex].text;
-            }
-        } else {
-            const selectedCard = document.querySelector(`.diabetes-card[data-type="${selectedType}"]`);
-            if (selectedCard) {
-                diabetesDisplay = selectedCard.querySelector("h3").textContent;
-            }
-        }
-
-        // Save profile data
-        const userProfile = {
-            name: name,
-            diabetesType: diabetesDisplay,
-            diabetesCode: selectedType,
-        };
-
-        localStorage.setItem("userProfile", JSON.stringify(userProfile));
-
-        // Redirect to dashboard
-        window.location.href = "dashboard.html";
-    });
-
-    // ===== Enter key support =====
-    nameInput.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" && selectedType === "") {
-            diabetesCards[0].click();
-        }
-    });
-    
+document.addEventListener('DOMContentLoaded',()=>{
+  const $=id=>document.getElementById(id);const cards=[...document.querySelectorAll('.diabetes-card')];const nameInput=$('profile-name');const otherContainer=$('other-diabetes-container');const otherSelect=$('profile-other-diabetes');const otherSpecify=$('profile-other-specify');let selectedType='';let medicineIndex=0;
+  cards.forEach(card=>card.addEventListener('click',()=>{cards.forEach(c=>c.classList.remove('selected'));card.classList.add('selected');selectedType=card.dataset.type;$('profile-diabetes-type').value=selectedType;otherContainer.style.display=selectedType==='other'?'block':'none';otherSelect.value='';otherSpecify.value='';otherSpecify.style.display='none';}));
+  otherSelect.addEventListener('change',()=>{const show=otherSelect.value==='other-specify';otherSpecify.style.display=show?'block':'none';if(show)otherSpecify.focus();});
+  function addMedicineRow(){const index=medicineIndex++;const row=document.createElement('div');row.className='signup-medicine-row';row.dataset.medicineIndex=index;row.innerHTML=`<input type="text" class="signup-med-name" aria-label="Medicine name" placeholder="Medicine name (e.g. Metformin)"><input type="text" class="signup-med-dose" aria-label="Medicine dosage" placeholder="Dosage (e.g. 500 mg)"><select class="signup-med-frequency" aria-label="Doses per day"><option value="1">Once daily</option><option value="2">Twice daily</option><option value="3">Three times daily</option></select><select class="signup-med-meal" aria-label="Meal timing"><option value="">Meal timing (optional)</option><option>Before a meal</option><option>With a meal</option><option>After a meal</option></select><div class="signup-times"><label>Dose 1 time<input type="time" class="signup-time1"></label><label>Dose 2 time<input type="time" class="signup-time2" disabled></label><label>Dose 3 time<input type="time" class="signup-time3" disabled></label></div><button type="button" class="remove-signup-medicine">Remove medicine</button>`;
+    const frequency=row.querySelector('.signup-med-frequency');frequency.addEventListener('change',()=>{const n=Number(frequency.value);[2,3].forEach(i=>{const input=row.querySelector(`.signup-time${i}`);input.disabled=i>n;input.required=i<=n;});});row.querySelector('.remove-signup-medicine').addEventListener('click',()=>row.remove());$('signupMedicineRows').append(row);}
+  $('addSignupMedicine').addEventListener('click',addMedicineRow);
+  $('profile-next-btn').addEventListener('click',e=>{e.preventDefault();const name=nameInput.value.trim();if(!name){alert('Please enter your full name.');nameInput.focus();return;}if(!selectedType){alert('Please select your diabetes type.');return;}let diabetesDisplay;if(selectedType==='other'){if(!otherSelect.value){alert('Please select or specify your diabetes type.');otherSelect.focus();return;}if(otherSelect.value==='other-specify'&&!otherSpecify.value.trim()){alert('Please specify your diabetes type.');otherSpecify.focus();return;}diabetesDisplay=otherSelect.value==='other-specify'?otherSpecify.value.trim():otherSelect.options[otherSelect.selectedIndex].text;}else diabetesDisplay=document.querySelector(`.diabetes-card[data-type="${selectedType}"] h3`).textContent;
+    const medicines=[...document.querySelectorAll('.signup-medicine-row')].map(row=>{const medicineName=row.querySelector('.signup-med-name').value.trim(),dosage=row.querySelector('.signup-med-dose').value.trim();if(!medicineName&&!dosage)return null;if(!medicineName||!dosage)return {invalid:true};const count=Number(row.querySelector('.signup-med-frequency').value);const times=[1,2,3].slice(0,count).map(i=>row.querySelector(`.signup-time${i}`).value);if(times.some(t=>!t))return {invalid:true};return {id:Date.now()+Number(row.dataset.medicineIndex),name:medicineName,dosage,time:times[0],times,frequency:`${count} time${count===1?'':'s'} daily`,mealTiming:row.querySelector('.signup-med-meal').value,status:'active',addedAt:new Date().toISOString()};}).filter(Boolean);
+    if(medicines.some(m=>m.invalid)){alert('Complete each medicine name, dosage, and dose time, or remove the unfinished row.');return;}
+    localStorage.setItem('userProfile',JSON.stringify({name,email:localStorage.getItem('userEmail')||'',diabetesType:diabetesDisplay,diabetesCode:selectedType}));if(medicines.length)localStorage.setItem('medications',JSON.stringify(medicines));else if(!localStorage.getItem('medications'))localStorage.setItem('medications','[]');window.location.href='dashboard.html';
+  });
+  nameInput.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();if(!selectedType)cards[0].click();else $('profile-next-btn').click();}});
 });
-
