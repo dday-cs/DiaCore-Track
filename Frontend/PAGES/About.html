@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diacore - About Yourself</title>
-    <link rel="stylesheet" href="../css/about.css">
+    <link rel="stylesheet" href="../css/About.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
@@ -19,7 +19,7 @@
                 <!-- Full Name -->
                 <div class="form-group">
                     <label>Full Name</label>
-                    <input type="text" id="profile-name" placeholder="Olivia Wilson" />
+                    <input type="text" id="profile-name" placeholder="Bonheur Maloba" />
                 </div>
 
                 <!-- Diabetes Type -->
@@ -93,8 +93,15 @@
                     <input type="hidden" id="profile-diabetes-type" value="" />
                 </div>
 
+                <section class="signup-medicines" aria-labelledby="signupMedicinesTitle">
+                    <h2 id="signupMedicinesTitle">Current medicines <span>(optional)</span></h2>
+                    <p>Add the medicines you already take. You can set reminders from their dose times.</p>
+                    <div id="signupMedicineRows"></div>
+                    <button type="button" class="add-signup-medicine" id="addSignupMedicine">+ Add a medicine</button>
+                </section>
+
                 <!-- Submit Button -->
-                <button id="profile-next-btn" class="btn-next" id="continueBtn">Complete Profile →</button>
+                <button id="profile-next-btn" class="btn-next">Complete Profile →</button>
 
             </div>
         </div>
