@@ -1,0 +1,78 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+  
+  const firebaseConfig = {
+    apiKey: "AIzaSyAwCUEuUM-2nfYCKBB1mG-EoGFyedKDzGk",
+    authDomain: "diacorelogin.firebaseapp.com",
+    projectId: "diacorelogin",
+    storageBucket: "diacorelogin.firebasestorage.app",
+    messagingSenderId: "600208234025",
+    appId: "1:600208234025:web:67d6615b71423b2970ae38",
+    measurementId: "G-2VW6K2C2VT"
+  };
+
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+ 
+let btn1 = document.getElementById("btn1");
+
+if(btn1){
+
+   btn1.addEventListener("click",()=>{
+
+        let email = document.getElementById("SignUpEmail").value;
+        let password = document.getElementById("SPassword").value;
+
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+        
+            const user = userCredential.user;
+            console.log(user.email);
+            //change the link to the correct login page link
+            window.location.href = "login.html";
+        
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorMessage);
+        
+        });
+
+    })
+
+}
+let btn2 = document.getElementById("btn2");
+
+if(btn2){
+
+
+    btn2.addEventListener("click",()=>{
+         let email = document.getElementById("LoginEmail").value;
+         let password = document.getElementById("LPassword").value;
+
+       signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+           
+
+            const user = userCredential.user;
+            console.log(user.email)
+            alert("Login Successful")
+            //replace the link with the correct link to dashboard 
+            window.location.href = "index.html";
+
+
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorMessage);
+        });
+
+    })
+
+
+    }
+
