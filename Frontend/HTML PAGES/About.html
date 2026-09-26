@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diacore - About Yourself</title>
+    <link rel="stylesheet" href="../css/About.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="profile-screen" class="screen">
+        <div class="profile-container">
+            <h1 class="profile-title">Tell us about yourself</h1>
+            <div class="profile-form">
+
+                <!-- Full Name -->
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="profile-name" placeholder="Bonheur Maloba" />
+                </div>
+
+                <!-- Diabetes Type -->
+                <div class="form-group">
+                    <label>Diabetes Type</label>
+                    <div class="diabetes-cards">
+                        <!-- Card 1: Type 1 Diabetes -->
+                        <div class="diabetes-card" data-type="type1">
+                            <div class="icon-circle icon-circle-blue">
+                                <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2C12 2 6 8 6 13.5C6 17.5 8.5 20 12 20C15.5 20 18 17.5 18 13.5C18 8 12 2 12 2Z"/>
+                                    <circle cx="12" cy="14" r="1.5" fill="white"/>
+                                </svg>
+                            </div>
+                        
+                            <h3 >Type 1 Diabetes</h3>
+                            <p>Insulin-dependent</p>
+                        </div>
+
+                        <!-- Card 2: Type 2 Diabetes -->
+                        <div class="diabetes-card" data-type="type2">
+                            <div class="icon-circle icon-circle-green">
+                                <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="4" y="2" width="16" height="20" rx="2"/>
+                                    <path d="M8 6h8"/>
+                                    <path d="M8 10h6"/>
+                                    <path d="M8 14h4"/>
+                                    <path d="M12 18v2"/>
+                                    <circle cx="12" cy="18" r="1.5" fill="white"/>
+                                </svg>
+                            </div>
+                            
+                            <h3>Type 2 Diabetes</h3>
+                            <p>Insulin-resistant</p>
+                        </div>
+
+                        <!-- Card 3: Other -->
+                        <div class="diabetes-card" data-type="other">
+                            <div class="icon-circle icon-circle-teal">
+                                <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 6L6 18"/>
+                                    <path d="M12 2v4"/>
+                                    <path d="M12 18v4"/>
+                                    <path d="M2 12h4"/>
+                                    <path d="M18 12h4"/>
+                                    <circle cx="12" cy="12" r="3" fill="white"/>
+                                </svg>
+                            </div>
+                            
+                            <h3>Other</h3>
+                            <p>Specify type below</p>
+                        </div>
+                    </div>
+
+                    <!-- Other Diabetes Dropdown -->
+                    <div id="other-diabetes-container" style="display: none; margin-top: 14px;">
+                        <select id="profile-other-diabetes" class="other-select">
+                            <option value="">Select other diabetes type...</option>
+                            <option value="gestational">Gestational Diabetes</option>
+                            <option value="prediabetes">Prediabetes</option>
+                            <option value="latent autoimmune">LADA (Latent Autoimmune)</option>
+                            <option value="mody">MODY (Maturity-Onset)</option>
+                            <option value="neonatal">Neonatal Diabetes</option>
+                            <option value="secondary">Secondary Diabetes</option>
+                            <option value="steroid-induced">Steroid-Induced Diabetes</option>
+                            <option value="cfrd">CFRD (Cystic Fibrosis Related)</option>
+                            <option value="other-specify">Other (Please specify)</option>
+                        </select>
+                        <input type="text" id="profile-other-specify" placeholder="Please specify..." style="display: none; margin-top: 10px;" />
+                    </div>
+                    <input type="hidden" id="profile-diabetes-type" value="" />
+                </div>
+
+                <section class="signup-medicines" aria-labelledby="signupMedicinesTitle">
+                    <h2 id="signupMedicinesTitle">Current medicines <span>(optional)</span></h2>
+                    <p>Add the medicines you already take. You can set reminders from their dose times.</p>
+                    <div id="signupMedicineRows"></div>
+                    <button type="button" class="add-signup-medicine" id="addSignupMedicine">+ Add a medicine</button>
+                </section>
+
+                <!-- Submit Button -->
+                <button id="profile-next-btn" class="btn-next">Complete Profile →</button>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/About.js"></script>
+</body>
+
+</html>
