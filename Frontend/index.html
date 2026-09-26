@@ -6,7 +6,7 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
 
-    <title>Diacore</title>
+    <title>DiaCore — Care. Monitor. Thrive.</title>
 
     <link rel="stylesheet" href="css/style.css">
 
@@ -14,7 +14,7 @@
 
 <body>
 
-<div class="loading-container">
+<main class="loading-container">
 
     <img src="assets/images/LOGO.png" class="logo" alt="DIACORE Logo">
 
@@ -24,7 +24,7 @@
         <span id="thrive">Thrive.</span>
     </div>
 
-    <div class="loading-dots">
+    <div class="loading-dots" id="loadingDots" aria-label="Loading DiaCore">
 
         <span></span>
         <span></span>
@@ -33,7 +33,13 @@
 
     </div>
 
-</div>
+    <div class="entry-actions" id="entryActions" aria-label="Choose how to continue" hidden>
+        <p>Your health, all in one place.</p>
+        <a class="entry-button primary-entry" href="pages/signup.html">Create an account</a>
+        <a class="entry-button secondary-entry" href="pages/login.html">Log in</a>
+    </div>
+
+</main>
 
 <script src="js/script.js"></script>
 
