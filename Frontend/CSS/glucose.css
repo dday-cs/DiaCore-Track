@@ -1,0 +1,364 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f8;
+    color: #24323d;
+}
+
+.page-container {
+    min-height: 100vh;
+    padding: 45px 20px 110px;
+    display: flex;
+    justify-content: center;
+}
+
+.glucose-card {
+    width: 100%;
+    max-width: 680px;
+    background-color: white;
+    border-radius: 18px;
+    padding: 34px;
+    box-shadow: 0 8px 30px rgba(30, 70, 80, 0.12);
+}
+
+.card-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #e5ebed;
+    margin-bottom: 28px;
+}
+
+.small-title {
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    color: #6f8a91;
+    margin-bottom: 7px;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 7px;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #71818a;
+}
+
+.heading-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: #e5f3f3;
+    color: #167b82;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #33454d;
+}
+
+label i {
+    color: #167b82;
+    margin-right: 7px;
+}
+
+label span {
+    font-weight: normal;
+    color: #839097;
+}
+
+input[type="datetime-local"],
+textarea {
+    width: 100%;
+    border: 1px solid #d7e0e3;
+    border-radius: 10px;
+    padding: 13px 14px;
+    font-size: 15px;
+    color: #33454d;
+    background-color: #fbfcfc;
+}
+
+input[type="datetime-local"]:focus,
+textarea:focus,
+.glucose-input:focus-within {
+    outline: none;
+    border-color: #167b82;
+    box-shadow: 0 0 0 3px rgba(22, 123, 130, 0.12);
+}
+
+.glucose-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid #d7e0e3;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fbfcfc;
+}
+
+.glucose-input input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 14px;
+    font-size: 28px;
+    color: #24323d;
+    background: transparent;
+}
+
+.glucose-input span {
+    padding-right: 16px;
+    font-size: 14px;
+    color: #71818a;
+}
+
+.feeling-options {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.feeling-option {
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #dce5e7;
+    border-radius: 12px;
+    padding: 15px 8px;
+    transition: 0.2s;
+    font-size: 13px;
+    font-weight: normal;
+}
+
+.feeling-option input {
+    display: none;
+}
+
+.face-icon {
+    display: block;
+    font-size: 30px;
+    margin-bottom: 8px;
+    color: #66777e;
+}
+
+
+.great-face {
+    color: #167b82;
+}
+
+.good-face {
+    color: #3e8d91;
+}
+
+.okay-face {
+    color: #8c7b5d;
+}
+
+.bad-face {
+    color: #9a5d5d;
+}
+
+.feeling-option:hover {
+    border-color: #167b82;
+    background-color: #f1f8f8;
+}
+
+.feeling-option input:checked + .face-icon {
+    color: #167b82;
+    transform: scale(1.12);
+}
+
+.feeling-option:has(input:checked) {
+    border: 2px solid #167b82;
+    background-color: #eaf6f6;
+    color: #167b82;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 105px;
+    resize: vertical;
+    font-family: Arial, sans-serif;
+}
+
+.save-button {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #167b82;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.save-button:hover {
+    background-color: #0f666c;
+    transform: translateY(-1px);
+}
+
+.save-button i {
+    margin-right: 8px;
+}
+
+@media (max-width: 600px) {
+    .glucose-card {
+        padding: 24px 20px;
+    }
+
+    .feeling-options {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card-heading {
+        align-items: flex-start;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}
+.bottomNav{
+    position: fixed;
+    bottom: 0;
+
+    width: 100%;
+    height: 75px;
+
+    background-color:white;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.navItem{
+    background: none;
+    border: none;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: grey;
+    gap: 5px;
+    cursor: pointer;
+}
+.navItem i{
+    font-size: large;
+}
+.navItem span{
+    font-size: 15px;
+}
+.navItem.active {
+    color: #2E9092;
+}
+.back-button{
+    text-decoration: none;
+}
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(20, 35, 40, 0.45);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-overlay.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard-modal {
+    width: 100%;
+    max-width: 410px;
+    background-color: white;
+    border-radius: 18px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(20, 35, 40, 0.22);
+    position: relative;
+}
+
+.modal-icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e5f3f3;
+    color: #167b82;
+    font-size: 20px;
+}
+
+.dashboard-modal h2 {
+    font-size: 21px;
+    margin-bottom: 10px;
+    color: #24323d;
+}
+
+.dashboard-modal p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #71818a;
+    margin-bottom: 24px;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.modal-buttons button {
+    flex: 1;
+    border-radius: 9px;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cancel-button {
+    border: 1px solid #d7e0e3;
+    background-color: white;
+    color: #52656c;
+}
+
+.confirm-button {
+    border: none;
+    background-color: #167b82;
+    color: white;
+}
+
+.cancel-button:hover {
+    background-color: #f4f7f8;
+}
+
+.confirm-button:hover {
+    background-color: #0f666c;
+}

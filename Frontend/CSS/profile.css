@@ -1,0 +1,36 @@
+.profilePhotoSection{text-align:center;background:#fff;border-radius:24px;padding:30px 20px 25px;box-shadow:0 4px 20px rgba(0,0,0,0.06);border:1px solid rgba(13,107,53,0.08);margin-bottom:20px;}
+.profilePhotoWrapper{display:inline-block;position:relative;}
+.profilePhoto{width:120px;height:120px;border-radius:50%;border:4px solid #1a8a4a;overflow:hidden;cursor:pointer;position:relative;margin:0 auto;background:linear-gradient(135deg,#2ecc71,#1a8a4a);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(26,138,74,0.25);}
+.default-avatar{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#2ecc71,#1a8a4a);}
+.default-avatar svg{width:70px;height:70px;color:rgba(255,255,255,0.9);stroke:rgba(255,255,255,0.9);}
+.profilePhoto img{width:100%;height:100%;object-fit:cover;}
+.photoOverlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(13,107,53,0.75);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;opacity:0;transition:opacity .3s ease;border-radius:50%;}
+.photoOverlay i{font-size:1.8rem;margin-bottom:4px;}
+.photoOverlay span{font-size:.7rem;font-weight:500;}
+.profilePhoto:hover .photoOverlay{opacity:1;}
+.profilePhotoSection h2{font-size:1.4rem;font-weight:600;color:#0d3a1e;margin-top:14px;}
+.profilePhotoSection p{font-size:.95rem;color:#4a7a5a;margin-top:2px;}
+
+.detail-item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #f0f4f0;}
+.detail-item:last-child{border-bottom:none;padding-bottom:0;}
+.detail-label{display:flex;align-items:center;gap:12px;color:#4a6a5a;font-size:.9rem;}
+.detail-label i{width:20px;color:#1a8a4a;font-size:1rem;}
+.detail-value{font-weight:500;color:#0d3a1e;font-size:.95rem;text-align:right;}
+
+.statsGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.stat-card{text-align:center;padding:14px 8px;background:#f4faf6;border-radius:14px;border:1px solid rgba(26,138,74,0.06);}
+.stat-number{display:block;font-size:1.5rem;font-weight:700;color:#0d6b35;}
+.stat-label{font-size:.65rem;color:#4a7a5a;font-weight:500;margin-top:2px;}
+
+.actionBtn{width:100%;padding:16px;border:none;border-radius:14px;font-size:1rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;font-family:inherit;transition:all .3s ease;}
+.logoutBtn{background:#fee8e8;color:#dc3545;}
+.logoutBtn:hover{background:#fcd5d5;transform:translateY(-2px);}
+
+@media (max-width:480px){
+  .profilePhoto{width:100px;height:100px;}
+  .default-avatar svg{width:55px;height:55px;}
+  .detail-item{flex-wrap:wrap;gap:4px;}
+  .detail-value{font-size:.9rem;text-align:left;width:100%;padding-left:32px;}
+  .statsGrid{grid-template-columns:repeat(2,1fr);gap:10px;}
+}
+.profile-layout{display:grid;grid-template-columns:minmax(260px,.85fr) minmax(360px,1.4fr);gap:15px;align-items:start}.profile-overview{padding:20px}.profilePhotoSection{box-shadow:none;border:0;border-bottom:1px solid #edf1ee;border-radius:0;padding:5px 10px 19px;margin-bottom:18px}.profile-health h2{font:700 14px Manrope,sans-serif;color:#304b3d;margin:0 0 6px}.profile-health .detail-item{padding:11px 0}.profile-health .detail-label{font-size:10px}.profile-health .detail-value{font-size:10px}.profile-activity{min-height:260px}.profile-activity .statsGrid{grid-template-columns:repeat(2,1fr);margin-top:18px}.profile-activity .stat-card{background:#f7faf8}.profile-activity .stat-label{display:block}.logoutBtn{margin-top:23px;padding:12px;font-size:12px}.edit-modal{position:fixed;inset:0;z-index:20;background:#18352966;backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;padding:15px}.edit-modal.active{display:flex}.edit-modal-card{position:relative;background:#fff;border-radius:16px;width:min(440px,100%);padding:23px;box-shadow:0 22px 80px #132e2250}.edit-modal-header{display:flex;align-items:center;justify-content:space-between}.edit-modal-header h2{margin:0;color:#294538;font:700 18px Manrope}.modalClose{border:0;background:transparent;font-size:23px;color:#94a198;cursor:pointer}.edit-modal-body{display:grid;gap:7px;margin-top:16px}.edit-modal-body label{font-size:10px;font-weight:600;color:#50675a;margin-top:6px}.edit-modal-body label span{color:#9aa69f;font-weight:400}.edit-modal-body input{height:39px;border:1px solid #e1eae4;border-radius:8px;padding:0 10px;color:#355144;font:11px 'DM Sans'}.edit-modal-footer{display:flex;justify-content:flex-end;gap:8px;margin-top:17px}.edit-modal-footer .button{font-size:10px}@media(max-width:800px){.profile-layout{grid-template-columns:1fr}.profile-activity .statsGrid{grid-template-columns:repeat(4,1fr)}}@media(max-width:560px){.profile-activity .statsGrid{grid-template-columns:repeat(2,1fr)}}
